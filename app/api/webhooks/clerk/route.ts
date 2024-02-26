@@ -7,7 +7,37 @@ import { Webhook } from "svix";
 
 import { createUser, deleteUser, updateUser } from "@/lib/actions/user.actions";
 
-export async function POST(req: Request) {
+
+//------------test webhookEvent-----------------
+// import type { WebhookEvent } from "@clerk/clerk-sdk-node"
+ 
+// const handler = async( req, res) => {
+//   try{
+//   const evt = req.body.evt as WebhookEvent;
+//   switch (evt.type) {
+//     case 'user.created':
+//       // UserJSON.first_name is a string
+//       const firstName = evt.data.first_name
+//       // UserJSON.last_name is a string
+//       const lastName = evt.data.last_name
+//       // UserJSON.email_addresses is an array of EmailAddressJSON
+//       const emails = evt.data.email_addresses;
+//       res.status(200).json({ message: 'Webhook received and processed successfully.' });
+//       break;
+//     // Handle other webhook event types if needed
+//     default:
+//       // Unsupported webhook event type
+//       res.status(400).json({ error: 'Unsupported webhook event type.' });
+//       break;
+//   }
+// }catch(error){
+//   console.error("webhook error",error)
+//   res.status(500).json({error:'Internal server error.'})
+// }
+// }
+
+
+export async function POST(req: Request,res: Response) {
   // You can find this in the Clerk Dashboard -> Webhooks -> choose the webhook
   const WEBHOOK_SECRET = process.env.WEBHOOK_SECRET;
 
