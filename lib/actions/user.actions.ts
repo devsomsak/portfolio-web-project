@@ -19,33 +19,33 @@ interface UserDoc extends Document {
   planId: number;
   creditBalance: number;
 }
-mongoose.connect(MONGODB_URL)
-  .then(async () => {
-    console.log('Connected to MongoDB');
+// mongoose.connect(MONGODB_URL)
+//   .then(async () => {
+//     console.log('Connected to MongoDB');
 
-    // Create mockup data
-    const mockUserData: Partial<UserDoc> = {
-      clerkId: 'user_2cqQqIrw1udfdSrgqZLFPIBQ2SB',
-      email: 'devrleang@gmail.com',
-      username: 'devrleang',
-      photo: 'example_photo.jpg',
-      firstName: 'leang',
-      lastName: 'Dev',
-      planId: 2,
-      creditBalance: 8888888888,
-    };
+    // Create && Test mockup data
+    // const mockUserData: Partial<UserDoc> = {
+    //   clerkId: 'user_2cqQqIrw1udfdSrgqZLFPIBQ2SB',
+    //   email: 'devrleang@gmail.com',
+    //   username: 'devrleang',
+    //   photo: 'example_photo.jpg',
+    //   firstName: 'leang',
+    //   lastName: 'Dev',
+    //   planId: 2,
+    //   creditBalance: 8888888888,
+    // };
 
-    try {
-      // Insert mockup data into the User collection
-      const newUser = await User.create(mockUserData);
-      console.log('Mockup user data inserted:', newUser);
-    } catch (error) {
-      console.error('Error creating mockup user data:', error);
-    }
-  })
-  .catch(error => {
-    console.error('MongoDB connection error:', error);
-  });
+  //   try {
+  //     // Insert mockup data into the User collection
+  //     const newUser = await User.create(mockUserData);
+  //     console.log('Mockup user data inserted:', newUser);
+  //   } catch (error) {
+  //     console.error('Error creating mockup user data:', error);
+  //   }
+  // })
+  // .catch(error => {
+  //   console.error('MongoDB connection error:', error);
+  // });
 
 // CREATE
 export async function createUser(user: CreateUserParams) {
