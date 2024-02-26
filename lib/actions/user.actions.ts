@@ -15,6 +15,7 @@ export async function createUser(user: CreateUserParams) {
 
     return JSON.parse(JSON.stringify(newUser));
   } catch (error) {
+    console.error("CreateUser error: ",error)
     handleError(error);
   }
 }
@@ -30,6 +31,7 @@ export async function getUserById(userId: string) {
 
     return JSON.parse(JSON.stringify(user));
   } catch (error) {
+    console.error("Read User error: ",error)
     handleError(error);
   }
 }
@@ -47,6 +49,7 @@ export async function updateUser(clerkId: string, user: UpdateUserParams) {
     
     return JSON.parse(JSON.stringify(updatedUser));
   } catch (error) {
+    console.error("Update User error: ",error)
     handleError(error);
   }
 }
@@ -69,6 +72,7 @@ export async function deleteUser(clerkId: string) {
 
     return deletedUser ? JSON.parse(JSON.stringify(deletedUser)) : null;
   } catch (error) {
+    console.error("Delete User error: ",error)
     handleError(error);
   }
 }

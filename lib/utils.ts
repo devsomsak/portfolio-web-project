@@ -11,21 +11,35 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 // ERROR HANDLER
-export const handleError = (error: unknown) => {
+// handleError function in lib/utils.ts
+export function handleError(error: any) {
   if (error instanceof Error) {
-    // This is a native JavaScript error (e.g., TypeError, RangeError)
-    console.error(error.message);
-    throw new Error(`Error: ${error.message}`);
+    console.error("An error occurred:", error.message);
+    throw error; // Throw the error object itself
   } else if (typeof error === "string") {
-    // This is a string error message
-    console.error(error);
-    throw new Error(`Error: ${error}`);
+    console.error("An error occurred:", error);
+    throw new Error(error); // Throw a new error with a descriptive message
   } else {
-    // This is an unknown type of error
-    console.error(error);
-    throw new Error(`Unknown error: ${JSON.stringify(error)}`);
+    console.error("An unknown error occurred:", error);
+    throw new Error("An unknown error occurred"); // Throw a generic error
   }
-};
+}
+
+// export const handleError = (error: unknown) => {
+//   if (error instanceof Error) {
+//     // This is a native JavaScript error (e.g., TypeError, RangeError)
+//     console.error(error.message);
+//     throw new Error(`Error: ${error.message}`);
+//   } else if (typeof error === "string") {
+//     // This is a string error message
+//     console.error(error);
+//     throw new Error(`Error: ${error}`);
+//   } else {
+//     // This is an unknown type of error
+//     console.error(error);
+//     throw new Error(`Unknown error: ${JSON.stringify(error)}`);
+//   }
+// };
 
 // PLACEHOLDER LOADER - while image is transforming
 const shimmer = (w: number, h: number) => `
