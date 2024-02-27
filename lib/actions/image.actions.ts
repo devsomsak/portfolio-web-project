@@ -7,6 +7,7 @@ import User from "../database/models/user.model";
 import Image from "../database/models/image.model";
 import { redirect } from "next/navigation";
 import { v2 as cloudinary } from 'cloudinary'
+import dotenv from "dotenv"
 
 
 
@@ -101,7 +102,7 @@ export async function getAllImages({ limit = 9, page = 1, searchQuery = '' }: {
 }) {
   try {
     await connectToDatabase();
-
+    dotenv.config();
     cloudinary.config({
       cloud_name: process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME,
       api_key: process.env.CLOUDINARY_API_KEY,

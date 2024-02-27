@@ -12,7 +12,7 @@ const Home = async ({ searchParams }: SearchParamProps) => {
 
   return (
     <>
-      <section className="home">
+      <section className="home border border-dashed border-[red]">
         <h1 className="home-heading">
           Unleash Your Creative Vision with Imaginify
         </h1>
